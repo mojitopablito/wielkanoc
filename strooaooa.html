@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Życzenia Świąteczne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #50ff76;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #e3eff0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #d9534f;
+        }
+        .greetings {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .author {
+            font-size: 14px;
+            margin-top: 30px;
+            color: #777;
+        }
+        .festive-image {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Życzenia Świąteczne</h1>
+        <form id="nameForm">
+            <label for="name">Podaj swoje imię:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Dalej</button>
+        </form>
+        <div class="greetings" id="greetings"></div>
+        <div class="festive-image">
+            <img src="zdjecie1.jpg" alt="Świąteczny obrazek">
+        </div>
+        <div class="author">Autor życzeń Paweł Rapa</div>
+    </div>
+
+    <script>
+        const form = document.getElementById('nameForm');
+        const greetingsDiv = document.getElementById('greetings');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim().toLowerCase();
+
+            if (name.endsWith('a')) {
+                greetingsDiv.textContent = `Szanowna Pani ${name}.  Z okazji świąt życzę wszytskiego dobrego oraz wesołego jajka!`;
+            } else if (name === 'kuba' || !name.endsWith('a')) {
+                greetingsDiv.textContent = `Szanowny Pan ${name}. Z okazji świąt życzę wszytskiego dobrego oraz wesołego jajka!`;
+            } else {
+                greetingsDiv.textContent = 'Wesołych Świąt!';
+            }
+        });
+    </script>
+</body>
+</html>
